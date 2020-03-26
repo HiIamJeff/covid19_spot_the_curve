@@ -1,6 +1,6 @@
 # COVID19_Spot_the_Curve
 ## Description
-#### Last edited time of the article: 2020/03/26
+#### Last update time: 2020/03/26
 This is a visualization and simple analysis project about Coronavirus COVID-19. I used the confirmed cases data to visualize and investigate the current "Curve" through basic data science approach. This repo focuses on only the ETL (Data cleaning) and visualization. Please read the full Medium article here:
 
 
