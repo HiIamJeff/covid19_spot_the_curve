@@ -13,9 +13,11 @@ Confirmed cases data from JHU GitHub: https://github.com/CSSEGISandData/COVID-19
 Population data from Worldometer: https://www.worldometers.info/world-population/population-by-country/
 
 ## Acknowledge
-Please keep in mind that the source data are still undergoing rapid developing. I will keep updating the notebook as much as I could. I am a data science practitioner and have little knowledge in Epidemiology. This is an attempt to apply analysis skill to translate the data into understandable information (Report and EDA). If I made any inaccurate information or you have any thoughts on the article, please let me know!
+Please keep in mind that the source data are still undergoing rapid developing. I will keep updating the notebook as much as I could. I am a data science practitioner and have little knowledge in Epidemiology. This is an attempt to apply analysis skill to translate the data into understandable information (Report and EDA). If I made any inaccurate information or you have any thoughts on the article, please let me know! Thanks!
 
 #### Contact
 cl3883@columbia.edu
+https://www.linkedin.com/in/jefflu-chia-ching-lu/
+https://medium.com/@a1080211jeff
 
 Jeff
