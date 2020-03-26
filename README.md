@@ -1,13 +1,12 @@
 # COVID19_Spot_the_Curve
 ## Description
 #### Last edited time of the article: 2020/03/26
-This is a visualization and simple analysis project about Coronavirus COVID-19. I use the confirmed cases data to visualize and investigate the current "Curve" with basic data science approach. The repo focuses on only the ETL (Data cleaning) and visualization. Please read the Medium article here: 
+This is a visualization and simple analysis project about Coronavirus COVID-19. I used the confirmed cases data to visualize and investigate the current "Curve" through basic data science approach. This repo focuses on only the ETL (Data cleaning) and visualization. Please read the full Medium article here:
 
-##### Other reference about "Flatten the Curve": 
+
+##### References about "Flatten the Curve": 
 - https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca
 - https://medium.com/@joschabach/flattening-the-curve-is-a-deadly-delusion-eea324fe9727
-
-
 
 ### Data in Used
 Confirmed cases data from JHU GitHub: https://github.com/CSSEGISandData/COVID-19
