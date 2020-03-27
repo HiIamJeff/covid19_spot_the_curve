@@ -1,7 +1,7 @@
 # COVID19_Spot_the_Curve
 ## Description
 #### Last update time: 2020/03/26
-This is a visualization and simple analysis project about Coronavirus COVID-19. I used the confirmed cases data to visualize and investigate the current "Curve" through basic data science approach. This repo focuses on only the ETL (Data cleaning) and visualization. Please read the full Medium article here:
+This is a visualization and simple analysis project about Coronavirus COVID-19. I used the confirmed cases data to visualize and investigate the current "Curve" through basic data science approach. This repo focuses on only the ETL (Data cleaning) and visualization. Please read the full Medium article here: https://medium.com/@a1080211jeff/spot-the-curve-visualization-of-cases-data-on-coronavirus-8ec7cc1968d1
 
 
 ##### References about "Flatten the Curve": 
