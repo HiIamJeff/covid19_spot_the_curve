@@ -200,11 +200,12 @@ dropdown_function4 = dcc.Dropdown(id='country_selection4',
                                   # className="dcc_control"
                                   )
 
+####  Initiate the app
 #### style setting
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-# app = dash.Dash()
-
+server = app.server
+app.title = 'SPOT THE CURVE'
 
 # in fact, html.Div() don't need children in my test
 # original version
