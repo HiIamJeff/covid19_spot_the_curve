@@ -38,8 +38,8 @@ import plotly.graph_objects as go
 # import plotly.io as pio
 import dash_table
 
-import matplotlib as mpl
-import matplotlib.pyplot as plt
+# import matplotlib as mpl
+# import matplotlib.pyplot as plt
 # from bokeh import palettes
 import math
 
