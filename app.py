@@ -105,9 +105,12 @@ def jhu_data_process_2day_specific(date_df, day_threshold):
 
 
 ## Population data
-data_path = r'C:\Users\ADMIN\Desktop\Python\Project_Coronavirus (COVID-19)\COVID19_Spot_the_Curve'
-data_file = 'Country_Population.csv'
-pop_data = pd.read_csv(data_path + '/' + data_file, usecols=['Country', 'Population'])
+# data_path = r'C:\Users\ADMIN\Desktop\Python\Project_Coronavirus (COVID-19)\COVID19_Spot_the_Curve'
+# data_file = 'Country_Population.csv'
+data_url_pop = 'https://raw.githubusercontent.com/HiIamJeff/COVID19_Spot_the_Curve/master/Country_Population.csv'
+
+pop_data = pd.read_csv(data_url_pop)
+# pop_data = pd.read_csv(data_path + '/' + data_file, usecols=['Country', 'Population'])
 pop_df = pop_data.copy()
 pop_df['Population'] = pop_df['Population'].str.replace(',', '').astype(int)
 country_pop_dict = pop_df.set_index('Country').to_dict('dict')['Population']
