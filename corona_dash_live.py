@@ -9,8 +9,13 @@
 ## https://dash.plotly.com/dash-html-components
 
 ## WORKING ON Heroku app!
-## https://medium.com/@austinlasseter/how-to-deploy-a-simple-plotly-dash-app-to-heroku-622a2216eb73
-## CHANGING X LABEL INTO ORDINAL NUMBERS (1st. 2nd...)
+## DEPLOY PROBLEM (SEEMS THAT matplotlib IS NOT SUPPORTED IN HEROKU)
+## CHANGE COLOR SCALE TO PLOTLY (DON'T IMPORT matplotlib)
+## https://plotly.com/python/builtin-colorscales/
+## https://plotly.com/python/discrete-color/
+
+# https://stackoverflow.com/questions/43697460/import-matplotlib-failing-on-heroku
+
 # https://stackoverflow.com/questions/9647202/ordinal-numbers-replacement
 ## CONSIDERING ADDING REAL DATE INTO TOOLTIP OF EACH POINT?
 
@@ -26,7 +31,7 @@ import dash
 import dash_core_components as dcc
 from dash.dependencies import Input, Output, State
 import dash_html_components as html
-# import plotly_express as px
+import plotly_express as px
 # from datetime import datetime
 from dash.dash import no_update
 import plotly.graph_objects as go
@@ -326,9 +331,13 @@ def create_trend_line_infection_rate_2day(df, country_list, title_name):
     )
     # fig.update_layout(hovermode="y")
     ## color
+
+    ## new
     color_n = len(country_list)
-    cm = plt.get_cmap('tab10')
-    for i, color in enumerate([mpl.colors.rgb2hex(cm(1. * i / color_n)) for i in range(color_n)]):
+    # cm = plt.get_cmap('tab10')
+    # for i, color in enumerate([mpl.colors.rgb2hex(cm(1. * i / color_n)) for i in range(color_n)]):
+    cm = px.colors.qualitative.T10 # e.g. ['#4C78A8']
+    for i, color in enumerate(cm[0:color_n]):
         fig['data'][i]['marker'].update({'color': color})
         fig['data'][i]['marker']['line'].update({'color': color})
     return fig
