@@ -308,12 +308,12 @@ def create_trend_line_infection_rate_2day(df, country_list, title_name):
                                  mode='lines',
                                  name=c,
                                  hoverinfo="y+name"))
-    fig.update_xaxes(title_text='2-Day (Start on the date with the 100th confirmed case in each country)')
-    fig.update_yaxes(title_text='2-Day Increase (# of confirmed cases per 1M people)')
+    fig.update_xaxes(title_text='2-Day (Start on the date with the 100th case in each country)')
+    fig.update_yaxes(title_text='2-Day Increase (cases per 1M people)')
     fig.update_layout(
         title={
             'text': title_name,
-            'font': {'size': 22},
+            'font': {'size': 22, 'family': 'Arial, sans-serif'},
             'y': 0.95,
             #         'x':0.5,
             'xanchor': 'center',
@@ -321,17 +321,19 @@ def create_trend_line_infection_rate_2day(df, country_list, title_name):
         margin=dict(l=20, r=20, t=50, b=20),
         xaxis={
             'tickmode': 'array',
-            'ticks': "",
+            'ticks': 'outside',
+            'tickcolor': '#F7FBFE',
             'title_standoff': 15,
             # 'tick0': 2, # seems not supporting for now
             # 'dtick': 2,
             'tickvals': [n for n in range(0, 264) if (n + 2) % 2 == 0],  # Infinite number
-            'ticktext': [ordinal(n) for n in [n for n in range(2, 528) if (n + 2) % 4 == 0]]  # Infinite number
+            'ticktext': [ordinal(n) for n in [n for n in range(2, 528) if (n + 2) % 4 == 0]],  # Infinite number
+            # 'gridcolor': '#8F8F8F'
         },
-        yaxis={'ticks': '', 'title_standoff': 5},
+        yaxis={'title_standoff': 5, 'ticks': 'outside', 'tickcolor': '#F7FBFE'},
         xaxis_showgrid=False,
         paper_bgcolor='#F7FBFE',  # canvas color
-        # plot_bgcolor='#b50000', # plot color
+        # plot_bgcolor='#F2EBC4', # plot color #D8D991 #F6EEDF #FFF8DE
     )
     # fig.update_layout(hovermode="y")
     ## color
