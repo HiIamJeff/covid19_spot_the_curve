@@ -1,5 +1,5 @@
 # COVID19_Spot_the_Curve
-#### Last update time: 2020/05/15 (Added a web app)
+#### Last update time: 2020/05/05 (Added a web app)
 An interactive and up-to-date web app for visualizing the "Curve" of each country has come online (Made with Plolty and Dash; Host with Heroku).
 - https://spot-the-curve-coronavirus.herokuapp.com/ (It takes a few seconds to load the first time.)
 
