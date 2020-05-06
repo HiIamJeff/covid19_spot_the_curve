@@ -161,7 +161,7 @@ euro_country = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Czechia', 'Denmark
                 'Luxembourg', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Spain', 'Sweden', 'Switzerland', 'United Kingdom']
 america_country = ['United States', 'Brazil', 'Mexico', 'Colombia', 'Argentina', 'Canada', 'Peru',
                    'Venezuela', 'Chile', 'Ecuador', 'Guatemala', 'Cuba']
-meast_country = ['Egypt', 'Iran', 'Iraq', 'Israel', 'Saudi Arabia', 'Syria', 'Turkey', 'Yemen']
+meast_country = ['Egypt', 'Iran', 'Iraq', 'Israel', 'Qatar', 'Saudi Arabia', 'Syria', 'Turkey', 'Yemen']
 
 country_list = asia_country + euro_country + america_country + meast_country
 
