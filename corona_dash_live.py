@@ -314,8 +314,9 @@ def create_trend_line_infection_rate_2day(df, country_list, title_name):
     fig = go.Figure()
     fig.layout.template = 'ggplot2'
     for c in country_list:
-        fig.add_trace(go.Scatter(x=list(df[c].dropna().index), y=df[c].dropna(),
+        fig.add_trace(go.Scatter(x=df[c].dropna().index, y=df[c].dropna().values,
                                  mode='lines',
+                                 # line_shape='spline',
                                  name=c,
                                  hoverinfo="y+name"))
     fig.update_xaxes(title_text='2-Day (Start on the date with the 100th case in each country)')
@@ -338,12 +339,11 @@ def create_trend_line_infection_rate_2day(df, country_list, title_name):
             # 'dtick': 2,
             'tickvals': [n for n in range(0, 264) if (n + 2) % 2 == 0],  # Infinite number
             'ticktext': [ordinal(n) for n in [n for n in range(2, 528) if (n + 2) % 4 == 0]],  # Infinite number
-            # 'gridcolor': '#8F8F8F'
         },
-        yaxis={'title_standoff': 5, 'ticks': 'outside', 'tickcolor': '#F7FBFE'},
+        yaxis={'title_standoff': 5, 'ticks': 'outside', 'tickcolor': '#F7FBFE', 'gridcolor': '#EEEEEE'},
         xaxis_showgrid=False,
         paper_bgcolor='#F7FBFE',  # canvas color
-        # plot_bgcolor='#F2EBC4', # plot color #D8D991 #F6EEDF #FFF8DE
+        plot_bgcolor='#F7FBFE', # plot color #D8D991 #F6EEDF #FFF8DE
     )
     # fig.update_layout(hovermode="y")
     ## color
