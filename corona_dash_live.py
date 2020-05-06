@@ -19,8 +19,16 @@
 # https://stackoverflow.com/questions/9647202/ordinal-numbers-replacement
 ## CONSIDERING ADDING REAL DATE INTO TOOLTIP OF EACH POINT?
 
-##
+# https://stackoverflow.com/questions/53327572/how-do-i-highlight-an-entire-trace-upon-hover-in-plotly-for-python
+# https://plotly.com/javascript/plotlyjs-events/
+## HOVER AND HIGHLIGHT
 
+# https://www.bloomberg.com/news/articles/2020-05-03/an-uneven-curve-flattening-with-manhattan-ahead-of-the-bronx
+## NEW YORK CITY STATUS
+
+# https://github.com/COVID19Tracking/covid-tracking-dash/blob/master/covid_tracking/app.py
+# http://35.212.27.3:8050/
+## COOL WAY TO DO THE SIMILAR THING. CAN LEARN MARKDOWN FROM THIS
 
 # LAYER
 
@@ -150,14 +158,13 @@ asia_country = ['Japan', 'Taiwan', 'South Korea', 'Singapore', 'Thailand', 'Phil
                 'Vietnam', 'Indonesia', 'China', 'India']
 euro_country = ['Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Czechia', 'Denmark',
                 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy',
-                'Luxembourg', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Spain', 'Sweden', 'United Kingdom']
+                'Luxembourg', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Spain', 'Sweden', 'Switzerland', 'United Kingdom']
 america_country = ['United States', 'Brazil', 'Mexico', 'Colombia', 'Argentina', 'Canada', 'Peru',
                    'Venezuela', 'Chile', 'Ecuador', 'Guatemala', 'Cuba']
 meast_country = ['Egypt', 'Iran', 'Iraq', 'Israel', 'Saudi Arabia', 'Syria', 'Turkey', 'Yemen']
 
 country_list = asia_country + euro_country + america_country + meast_country
 
-# top_country =
 # create the option list
 country_options = [dict(label=c, value=c) for c in country_list]
 # [{'label': 'Japan', 'value': 'Japan'},{'label': 'Taiwan', 'value': 'Taiwan'}]
@@ -224,16 +231,17 @@ app.title = 'SPOT THE CURVE'
 app.layout = html.Div([
     html.Div(className="row", children=[
         html.Div(className='four columns', children=[
-            html.H2('Spot the Curve: COVID-19', style={'font-weight': 'bold', "margin-top": "10px"}),
-            html.H6('Visualizing the Pressure of Healthcare with Case Data'),
-            # html.Br([]),
+            html.H2('Spot the Curve: COVID-19', style={'font-weight': 'bold', "margin-top": "10px", "margin-bottom": "2px"}),
+            html.H6('Visualizing the Pressure of Healthcare with Case Data', style={'color': '#6094B3', 'font-weight': 'bold', "margin-top": "1px", "margin-bottom": "0px"}),
+            html.Div(['Made by ', html.A('Jeff Lu', href='https://www.linkedin.com/in/jefflu-chia-ching-lu/')], style={'font-style': 'italic', 'display': 'inline', "margin-bottom": "10px"}),
+            # html.Br(),
             html.P(
                 '''
                 To understand the current pressure of healthcare capacity in each country,  
                 this app visualizes the latest confirmed cases of Coronavirus (COVID-19) with some modification. 
                 Pick the countries that you are interested in and see if you can spot the CURVE from them.
-                '''
-            ),
+                ''',
+                style={"margin-top": "10px"}),
             html.Header('Assumption and Plotting Detail', style={'font-weight': 'bold'}),
             html.P(
                 '''
@@ -277,13 +285,15 @@ app.layout = html.Div([
             dcc.Graph(id='output-graph', animate=None),
             html.P(
                 ['Data Source: ', html.A('Johns Hopkins University', href='https://github.com/CSSEGISandData/COVID-19'),
-                 ' (Latest record of all countries is {})'.format(df.head().columns[-1])],
-                style={"margin-top": "10px"}),
-            # html.Br([]),
+                 ' (Latest record is {})'.format(df.head().columns[-1])],
+                style={'font-style': 'italic', 'display': 'inline', "margin-top": "10px"},
+                # style={"margin-top": "10px"}
+            ),
+            html.Br([]),
             html.P(['Further Readings: ', html.A('Spot the Curve (Medium article)',
                                                  href='https://towardsdatascience.com/spot-the-curve-visualization-of-cases-data-on-coronavirus-8ec7cc1968d1?source=friends_link&sk=4f984ca1c1e4df9535b33d9ccab738ee'),
                     ', ', html.A('Coronavirus: Why You Must Act Now (Medium article)',
-                                 href='https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca')]),
+                                 href='https://medium.com/@tomaspueyo/coronavirus-act-today-or-people-will-die-f4d3d9cd99ca')], style={'font-style': 'italic', 'display': 'inline', "margin-top": "10px"}),
         ])
     ])
 ], style={'marginLeft': 20, 'marginRight': 20, 'marginTop': 20, 'marginBottom': 10,
