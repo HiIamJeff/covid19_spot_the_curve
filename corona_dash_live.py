@@ -129,7 +129,7 @@ country_pop_dict['Czechia'] = country_pop_dict.pop('Czech Republic (Czechia)', '
 def data_process_avg(complete_df):
     for c in list(complete_df.columns):
         try:
-            complete_df[c] = round(complete_df[c] / country_pop_dict.get(c) * 1000000, 3)
+            complete_df[c] = round(complete_df[c] / country_pop_dict.get(c) * 1000000, 2)
         except:
             complete_df[c + '_no_pop_value'] = complete_df[c]
     return complete_df
@@ -185,28 +185,32 @@ country_options4 = [dict(label=c, value=c) for c in sorted(meast_country)]
 dropdown_function1 = dcc.Dropdown(id='country_selection1',
                                   options=country_options1,
                                   multi=True,
-                                  value=['Singapore']
+                                  value=['Singapore'],
+                                  placeholder="Asian Countries",
                                   # className="dcc_control"
                                   )
 
 dropdown_function2 = dcc.Dropdown(id='country_selection2',
                                   options=country_options2,
                                   multi=True,
-                                  value=['Italy', 'United Kingdom']
+                                  value=['Italy', 'United Kingdom'],
+                                  placeholder="European Countries",
                                   # className="dcc_control"
                                   )
 
 dropdown_function3 = dcc.Dropdown(id='country_selection3',
                                   options=country_options3,
                                   multi=True,
-                                  value=['United States']
+                                  value=['United States'],
+                                  placeholder="America Countries",
                                   # className="dcc_control"
                                   )
 
 dropdown_function4 = dcc.Dropdown(id='country_selection4',
                                   options=country_options4,
                                   multi=True,
-                                  value=['Iran']
+                                  value=['Iran'],
+                                  placeholder="Middle East Countries",
                                   # className="dcc_control"
                                   )
 
@@ -227,7 +231,6 @@ app.title = 'SPOT THE CURVE'
 #     dcc.Graph(id='output-graph', animate=None),
 # ])
 
-# test for splitting
 app.layout = html.Div([
     html.Div(className="row", children=[
         html.Div(className='four columns', children=[
@@ -238,7 +241,7 @@ app.layout = html.Div([
             html.P(
                 '''
                 To understand the current pressure of healthcare capacity in each country,  
-                this app visualizes the latest confirmed cases of Coronavirus (COVID-19) with some modification. 
+                this app visualizes the latest confirmed cases of Coronavirus (COVID-19). 
                 Pick the countries that you are interested in and see if you can spot the CURVE from them.
                 ''',
                 style={"margin-top": "10px"}),
@@ -252,7 +255,7 @@ app.layout = html.Div([
                 The number of daily increase is also aggregated into 2-day format to smooth trends. 
                 '''
             ),
-            html.P('Top 10 Serious Countries based on Total Infection Rate', style={'font-weight': 'bold'}),
+            html.P('Top 10 Highest-Infection-Rate Countries', style={'font-weight': 'bold'}),
             # test for new style
             dash_table.DataTable(
                 id='table',
@@ -260,10 +263,11 @@ app.layout = html.Div([
                 data=top10_df.to_dict('records'),
                 fixed_columns={'headers': True, 'data': 1},
                 style_as_list_view=True,
-                style_cell={'padding': '5px', 'width': '50px'},
+                style_cell={'backgroundColor': '#F7FBFE', 'padding': '5px', 'width': '50px'},
                 style_header={
-                    'backgroundColor': 'white',
-                    'fontWeight': 'bold'
+                    'backgroundColor': '#F7FBFE',
+                    'fontWeight': 'bold',
+                    'font-size': 16
                 },
                 style_cell_conditional=[
                     {
@@ -318,9 +322,10 @@ def create_trend_line_infection_rate_2day(df, country_list, title_name):
                                  mode='lines',
                                  # line_shape='spline',
                                  name=c,
-                                 hoverinfo="y+name"))
+                                 # hoverinfo="y+name",
+                                 hovertemplate='<b>%{y:.0f}</b> new cases out of 1M people',))
     fig.update_xaxes(title_text='2-Day (Start on the date with the 100th case in each country)')
-    fig.update_yaxes(title_text='2-Day Increase (cases per 1M people)')
+    fig.update_yaxes(title_text='Increased Positive Cases per 1 million people')
     fig.update_layout(
         title={
             'text': title_name,
@@ -344,6 +349,8 @@ def create_trend_line_infection_rate_2day(df, country_list, title_name):
         xaxis_showgrid=False,
         paper_bgcolor='#F7FBFE',  # canvas color
         plot_bgcolor='#F7FBFE', # plot color #D8D991 #F6EEDF #FFF8DE
+        hoverlabel={'namelength':-1},
+
     )
     # fig.update_layout(hovermode="y")
     ## color
@@ -382,7 +389,7 @@ def goplot(n_clicks, country_selection1, country_selection2, country_selection3,
     else:
         outputtt = create_trend_line_infection_rate_2day(infection_data, country_selection1 + country_selection2
                                                          + country_selection3 + country_selection4,
-                                                         '<b>2-Day Increase in Infection Rate in each Country</b>')
+                                                         '<b>Infection Rate Per Country</b>')
         return outputtt
         # return country_selection
 
