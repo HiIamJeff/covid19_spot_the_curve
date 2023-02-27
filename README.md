@@ -1,7 +1,10 @@
-# COVID19_Spot_the_Curve
-#### Last update time: 2020/05/05 (Added a web app)
+# COVID19: Spot the Curve
+
+#### The web app is offline for the moment (since Heroku dropped the free tier)
 An interactive and up-to-date web app for visualizing the "Curve" of each country has come online (Made with Plolty and Dash; Host with Heroku).
 - https://spot-the-curve-coronavirus.herokuapp.com/ (It takes a few seconds to load the first time.)
+
+<img src="https://github.com/HiIamJeff/covid19_spot_the_curve/blob/master/assets/example.png"/>
 
 This is a visualization and quick analysis project about Coronavirus COVID-19. I used the confirmed cases data to visualize and investigate the current "Curve" through basic data science approach. This repo focuses on only the ETL (Data cleaning) and visualization. Please read the full Medium article here: https://medium.com/@a1080211jeff/spot-the-curve-visualization-of-cases-data-on-coronavirus-8ec7cc1968d1
 
@@ -10,7 +13,7 @@ This is a visualization and quick analysis project about Coronavirus COVID-19. I
 - https://medium.com/@joschabach/flattening-the-curve-is-a-deadly-delusion-eea324fe9727
 
 ### Data in Used
-- Confirmed cases data from JHU GitHub: https://github.com/CSSEGISandData/COVID-19 
+- Confirmed cases data from [JHU GitHub](https://github.com/CSSEGISandData/COVID-19): https://github.com/CSSEGISandData/COVID-19
 - Population data from Worldometer: https://www.worldometers.info/world-population/population-by-country/
 
 ### Acknowledge
